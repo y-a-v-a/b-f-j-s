@@ -1,11 +1,11 @@
 {
-  "name": "brainfuck-js",
-  "version": "0.0.1",
-  "description": "",
+  "name": "b-f-j-s",
+  "version": "0.0.2",
+  "description": "brainfuck interpreter in JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Vincent Bruijn <vebruijn@gmail.com>",
   "license": "ISC"
 }

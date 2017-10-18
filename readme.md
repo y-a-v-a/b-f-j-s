@@ -1,4 +1,4 @@
-# brainfuck-js
+# b-f-j-s
 
 Study project to see how to implement a brainfuck interpreter in JavaScript.
 
