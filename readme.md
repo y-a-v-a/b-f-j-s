@@ -4,6 +4,12 @@ Study project to see how to implement a brainfuck interpreter in JavaScript.
 
 y-a-v-a.org - 2017
 
+## Usage
+
+```bash
+$ node index.js helloworld.bf
+```
+
 ## See also
 
 http://www.hevanet.com/cristofd/brainfuck/

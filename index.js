@@ -9,7 +9,7 @@ const program = input.replace(/\n|[^\+\[\]\.\-\>\<\,]/g, '');
 
 //console.log(program);
 
-let inputString = 'sarah'
+let inputString = 'add some input string here';
 let inputArray = inputString.split('');
 let stack = Array(2000).fill(0);
 let pointer = 0;
