@@ -10,6 +10,8 @@ y-a-v-a.org - 2017
 $ node index.js helloworld.bf
 ```
 
+![](https://raw.github.com/y-a-v-a/b-f-j-s/master/example.png)
+
 ## See also
 
 http://www.hevanet.com/cristofd/brainfuck/
