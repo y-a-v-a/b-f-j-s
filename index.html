@@ -1,0 +1,122 @@
+<!doctype html>
+<style>
+  body {
+    background: #333;
+  }
+  h1, h2, div {
+    font-size: 2.3em;
+    letter-spacing: 0.2em;
+    font-family: monospace;
+    line-height: 1.3em;
+    word-break: break-word;
+    text-align: center;
+  }
+  div {
+    padding: 30px;
+  }
+  .output {
+    color: #bbf;
+  }
+  .code {
+    color: #fb0;
+  }
+  .code i {
+    color: #cf1;
+  }
+  .code b {
+    color: #c1f;
+  }
+  .code em {
+    color: #bbf;
+  }
+  .code span {
+    color: #f0b;
+  }
+</style>
+<h1>Brainfuck</h1>
+<div class="code">++++++++[>+++++>+++[>++++>+++++<<-]<<-]>>>>-...<<<++++++.>>>++.<<<-.>>+.<<.>>>---.<<<.>>.<<+.>>>-------.+++.<++++++.</div>
+<h2>Output</h2>
+<div class="output"></div>
+<script>
+const input = document.querySelector('.code').innerText;
+const program = input.replace(/\n|[^\+\[\]\.\-\>\<\,]/g, '');
+
+let inputString = '';
+let inputArray = inputString.split('');
+let stack = Array(20).fill(0);
+let pointer = 0;
+let result = [];
+
+const tokens = program.split('');
+
+let loopIndex = [];
+let loopDepth = 0;
+let loopStartIndex = [];
+
+tokens.forEach((el, idx) => {
+  if (el == '[') {
+    loopStartIndex[loopDepth++] = idx;
+  } else if (el == ']') {
+    loopIndex[loopStartIndex[--loopDepth]] = idx;
+  }
+});
+
+for(let i = 0; i < tokens.length;) {
+  switch (tokens[i]) {
+    case '>':
+      pointer++;
+    break;
+    case '<':
+      pointer--;
+    break;
+    case '+':
+      stack[pointer] += 1;
+    break;
+    case '-':
+      stack[pointer] -= 1;
+    break;
+    case '.':
+      result.push(String.fromCharCode(stack[pointer]));
+    break;
+    case ',':
+      stack[pointer] = inputArray.length ? inputArray.shift().charCodeAt(0) : -1;
+    break;
+    case '[':
+      if (stack[pointer] === 0) {
+        i = loopIndex[i];
+        continue;
+      }
+    break;
+    case ']':
+      if (stack[pointer] === 0) {
+        i++;
+      } else {
+        i = loopIndex.indexOf(i);
+      }
+      continue;
+    break;
+    default:
+      console.log('Unknown token: ' + tokens[i]);
+    break;
+  }
+  i++;
+}
+
+document.querySelector('.output').innerText = result.join('');
+</script>
+<script>
+  var div = document.querySelector('.code');
+  var code = div.textContent;
+
+  var a = code.replace(/[\+]+/g, function(match) {
+    return '<i>' + match + '</i>'
+  }).replace(/[\-]+/g, function(match) {
+    return '<b>' + match + '</b>';
+  }).replace(/[\.\,]+/g, function(match) {
+    return '<em>' + match + '</em>';
+  }).replace(/[\[\]]+/g, function(match) {
+    return '<span>' + match + '</span>';
+  });
+
+  div.innerHTML = a;
+</script>
