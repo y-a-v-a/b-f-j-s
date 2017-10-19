@@ -11,7 +11,7 @@ const program = input.replace(/\n|[^\+\[\]\.\-\>\<\,]/g, '');
 
 let inputString = 'add some input string here';
 let inputArray = inputString.split('');
-let stack = Array(2000).fill(0);
+let stack = Array(20).fill(0);
 let pointer = 0;
 let result = [];
 
@@ -30,6 +30,7 @@ tokens.forEach((el, idx) => {
 });
 
 for(let i = 0; i < tokens.length;) {
+  console.log(pointer, stack);
   switch (tokens[i]) {
     case '>':
       pointer++;
@@ -69,5 +70,7 @@ for(let i = 0; i < tokens.length;) {
   }
   i++;
 }
+
+console.log(stack);
 
 console.log(result.join(''));
