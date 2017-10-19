@@ -14,7 +14,11 @@ $ node index.js helloworld.bf
 
 ## See also
 
-http://www.hevanet.com/cristofd/brainfuck/
-http://www.hevanet.com/cristofd/brainfuck/di.html
-https://en.wikipedia.org/wiki/Brainfuck
-https://www.esolangs.org/wiki/Brainfuck
+* http://www.hevanet.com/cristofd/brainfuck/
+* http://www.hevanet.com/cristofd/brainfuck/di.html
+* https://en.wikipedia.org/wiki/Brainfuck
+* https://www.esolangs.org/wiki/Brainfuck
+
+## License
+
+GNU GENERAL PUBLIC LICENSE v3.0
